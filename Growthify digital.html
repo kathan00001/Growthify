@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Growthify Digital — Grow Smarter. Scale Faster.</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#040D21;
+  --navy2:#071530;
+  --navy3:#0C1E3D;
+  --navy4:#122548;
+  --green:#2EFF8B;
+  --green-dim:#1ACC6A;
+  --green-pale:rgba(46,255,139,0.1);
+  --green-border:rgba(46,255,139,0.25);
+  --white:#FFFFFF;
+  --off-white:#E8EDF5;
+  --muted:#7A8BA8;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden;line-height:1.6}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--navy2)}
+::-webkit-scrollbar-thumb{background:var(--navy4);border-radius:4px}
+
+/* ─── NAV ─── */
+nav{
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 5vw;
+  background:rgba(4,13,33,0.9);
+  backdrop-filter:blur(20px);
+  border-bottom:0.5px solid var(--border);
+}
+.logo{
+  font-family:'Fraunces',serif;font-size:1.4rem;font-weight:900;
+  letter-spacing:-0.5px;color:var(--white);text-decoration:none;
+  display:flex;align-items:center;gap:8px;
+}
+.logo-dot{width:8px;height:8px;background:var(--green);border-radius:50%}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-actions{display:flex;gap:0.75rem;align-items:center}
+.btn-ghost{
+  background:transparent;color:var(--muted);border:0.5px solid var(--border2);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.85rem;font-weight:600;
+  padding:0.55rem 1.2rem;border-radius:8px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;
+}
+.btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.3)}
+.btn-primary{
+  background:var(--green);color:#000;border:none;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.85rem;font-weight:700;
+  padding:0.6rem 1.4rem;border-radius:8px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;
+}
+.btn-primary:hover{background:#1ACC6A;transform:translateY(-1px)}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:92vh;display:flex;flex-direction:column;justify-content:center;
+  padding:6rem 5vw 4rem;position:relative;overflow:hidden;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(46,255,139,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(46,255,139,0.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 100%);
+}
+.hero-glow{
+  position:absolute;top:-10%;left:50%;transform:translateX(-50%);
+  width:700px;height:400px;
+  background:radial-gradient(ellipse at center,rgba(46,255,139,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green-pale);border:0.5px solid var(--green-border);
+  color:var(--green);font-size:0.75rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  padding:0.45rem 1rem;border-radius:100px;margin-bottom:2rem;
+  animation:fadeUp .6s ease both;
+}
+.hero-eyebrow-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{
+  font-family:'Fraunces',serif;font-size:clamp(3rem,6.5vw,6rem);font-weight:900;
+  line-height:1.02;letter-spacing:-2px;max-width:900px;
+  animation:fadeUp .7s .08s ease both;
+}
+.hero h1 .accent{color:var(--green)}
+.hero h1 .ital{font-style:italic}
+.hero-sub{
+  max-width:560px;margin-top:1.8rem;font-size:1.05rem;color:var(--muted);
+  font-weight:400;line-height:1.75;
+  animation:fadeUp .7s .16s ease both;
+}
+.hero-ctas{
+  display:flex;gap:1rem;margin-top:2.5rem;flex-wrap:wrap;
+  animation:fadeUp .7s .24s ease both;
+}
+.btn-lg{padding:0.85rem 2.2rem;font-size:0.95rem;border-radius:10px}
+.btn-outline-lg{
+  background:transparent;color:var(--white);
+  border:0.5px solid var(--border2);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.95rem;font-weight:600;
+  padding:0.85rem 2.2rem;border-radius:10px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+}
+.btn-outline-lg:hover{border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.04)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* ─── MARQUEE ─── */
+.ticker{
+  border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);
+  background:var(--navy2);overflow:hidden;padding:0.9rem 0;
+}
+.ticker-track{
+  display:flex;width:max-content;
+  animation:ticker 28s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{
+  display:flex;align-items:center;gap:0.8rem;padding:0 2rem;
+  font-size:0.78rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap;
+}
+.ticker-sep{width:4px;height:4px;background:var(--green);border-radius:50%;flex-shrink:0}
+
+/* ─── SECTION BASICS ─── */
+section{padding:7rem 5vw}
+.section-label{font-size:0.72rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+.section-h{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-1px;line-height:1.1;max-width:620px}
+.section-h .g{color:var(--green)}
+.section-h .i{font-style:italic}
+.section-p{color:var(--muted);font-size:1rem;line-height:1.75;max-width:500px;margin-top:1rem;font-weight:400}
+.section-header-row{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:4rem}
+
+/* ─── ABOUT ─── */
+#about{background:var(--navy2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-visual{
+  background:var(--navy3);border:0.5px solid var(--border2);border-radius:20px;
+  padding:2.5rem;display:flex;flex-direction:column;gap:1.5rem;position:relative;overflow:hidden;
+}
+.about-visual::after{
+  content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;
+  background:radial-gradient(circle,rgba(46,255,139,0.1),transparent 70%);border-radius:50%;
+}
+.av-kpi-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.av-kpi{
+  background:var(--navy4);border:0.5px solid var(--border);border-radius:12px;padding:1.2rem 1rem;
+}
+.av-kpi-val{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;color:var(--green)}
+.av-kpi-label{font-size:0.78rem;color:var(--muted);margin-top:4px;font-weight:500}
+.av-bar-section{display:flex;flex-direction:column;gap:1rem}
+.av-bar-row{display:flex;flex-direction:column;gap:6px}
+.av-bar-meta{display:flex;justify-content:space-between;font-size:0.8rem}
+.av-bar-label{color:var(--off-white);font-weight:500}
+.av-bar-val{color:var(--green);font-weight:700}
+.av-track{height:3px;background:var(--border2);border-radius:3px;overflow:hidden}
+.av-fill{height:100%;background:var(--green);border-radius:3px}
+.about-text{display:flex;flex-direction:column;gap:1.8rem}
+.about-feature{display:flex;gap:1rem;align-items:flex-start}
+.af-icon{
+  width:42px;height:42px;min-width:42px;border-radius:10px;
+  background:var(--green-pale);border:0.5px solid var(--green-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--green);font-weight:700;
+}
+.af-h{font-size:0.95rem;font-weight:700;margin-bottom:4px}
+.af-p{font-size:0.875rem;color:var(--muted);line-height:1.65}
+
+/* ─── SERVICES ─── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;border:0.5px solid var(--border)}
+.svc-card{
+  background:var(--navy2);padding:2.5rem 2rem;position:relative;
+  transition:background .25s;cursor:default;
+}
+.svc-card:hover{background:var(--navy3)}
+.svc-card:hover .svc-arrow{opacity:1;transform:translateX(0)}
+.svc-num{font-size:0.7rem;font-weight:800;letter-spacing:2px;color:rgba(255,255,255,0.15);margin-bottom:1.5rem;text-transform:uppercase}
+.svc-icon{font-size:22px;margin-bottom:1.2rem;width:46px;height:46px;background:var(--green-pale);border:0.5px solid var(--green-border);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--green)}
+.svc-h{font-size:1.05rem;font-weight:700;margin-bottom:0.7rem;letter-spacing:-0.3px}
+.svc-p{font-size:0.85rem;color:var(--muted);line-height:1.65}
+.svc-arrow{opacity:0;transform:translateX(-4px);transition:all .25s;position:absolute;bottom:2rem;right:2rem;color:var(--green);font-size:1.1rem}
+.svc-tag{
+  display:inline-block;margin-top:1rem;
+  background:var(--green-pale);color:var(--green);
+  font-size:0.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:3px 10px;border-radius:100px;border:0.5px solid var(--green-border);
+}
+
+/* ─── PORTFOLIO ─── */
+#portfolio{background:var(--navy2)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.port-card{
+  background:var(--navy3);border:0.5px solid var(--border2);border-radius:16px;overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.port-card:hover{border-color:var(--green-border);transform:translateY(-4px)}
+.port-thumb{
+  height:180px;display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;letter-spacing:-2px;
+  position:relative;overflow:hidden;
+}
+.port-thumb-a{background:#071B10;color:var(--green)}
+.port-thumb-b{background:#071030;color:#60A5FA}
+.port-thumb-c{background:#1A0A00;color:#FCD34D}
+.port-thumb-d{background:#120618;color:#E879F9}
+.port-thumb-e{background:#001A1A;color:#2DD4BF}
+.port-thumb-f{background:#1A0F00;color:#FB923C}
+.port-body{padding:1.5rem}
+.port-industry{font-size:0.7rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem}
+.port-h{font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+.port-result{
+  display:inline-flex;align-items:center;gap:5px;margin-top:0.8rem;
+  font-size:0.78rem;font-weight:700;color:var(--green);
+}
+.port-result::before{content:'↑';font-size:0.9rem}
+.port-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.8rem}
+.port-tag{
+  font-size:0.7rem;font-weight:600;padding:3px 9px;border-radius:100px;
+  background:rgba(255,255,255,0.06);color:var(--muted);border:0.5px solid var(--border);
+}
+
+/* ─── PROCESS ─── */
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:4rem;position:relative}
+.process-steps::before{
+  content:'';position:absolute;top:24px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);
+  height:0.5px;background:linear-gradient(90deg,var(--green),rgba(46,255,139,0.1));
+}
+.proc-step{text-align:center;padding:0 1rem}
+.proc-num{
+  width:48px;height:48px;border-radius:50%;border:0.5px solid var(--green);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;
+  font-family:'Fraunces',serif;font-size:1.1rem;font-weight:900;color:var(--green);
+  background:var(--navy);position:relative;z-index:1;
+}
+.proc-h{font-size:0.95rem;font-weight:700;margin-bottom:0.5rem}
+.proc-p{font-size:0.83rem;color:var(--muted);line-height:1.6}
+
+/* ─── TESTIMONIALS ─── */
+#testimonials{background:var(--navy2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.testi-card{
+  background:var(--navy3);border:0.5px solid var(--border2);border-radius:16px;
+  padding:2rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .2s;
+}
+.testi-card:hover{border-color:var(--green-border)}
+.testi-stars{display:flex;gap:3px}
+.star{width:13px;height:13px;background:var(--green);clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.testi-quote{font-size:0.9rem;color:var(--off-white);line-height:1.7;font-weight:400;font-style:italic;flex:1}
+.testi-author{display:flex;align-items:center;gap:0.8rem;border-top:0.5px solid var(--border);padding-top:1rem}
+.testi-av{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-weight:900;font-size:0.75rem;color:#000;flex-shrink:0;
+}
+.av-g{background:var(--green)}
+.av-b{background:#60A5FA}
+.av-y{background:#FCD34D}
+.testi-name{font-size:0.85rem;font-weight:700;line-height:1.2}
+.testi-role{font-size:0.76rem;color:var(--muted)}
+
+/* ─── CONTACT / CTA ─── */
+#contact{
+  text-align:center;padding:8rem 5vw;position:relative;overflow:hidden;
+  border-top:0.5px solid var(--border);
+}
+.contact-glow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse,rgba(46,255,139,0.06),transparent 70%);
+  pointer-events:none;
+}
+#contact h2{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;letter-spacing:-1.5px;max-width:700px;margin:0 auto 1.2rem;line-height:1.08}
+#contact p{color:var(--muted);font-size:1rem;max-width:440px;margin:0 auto 2.5rem;line-height:1.7}
+.contact-form{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem}
+.contact-input{
+  background:var(--navy3);border:0.5px solid var(--border2);color:var(--white);
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;
+  padding:0.85rem 1.4rem;border-radius:10px;outline:none;width:280px;transition:border-color .2s;
+}
+.contact-input::placeholder{color:var(--muted)}
+.contact-input:focus{border-color:rgba(46,255,139,0.4)}
+.contact-note{font-size:0.78rem;color:var(--muted)}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:0.5px solid var(--border);padding:2.5rem 5vw;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;
+}
+.footer-logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;display:flex;align-items:center;gap:8px}
+.footer-copy{font-size:0.8rem;color:var(--muted);text-align:center}
+.footer-links{display:flex;gap:1.5rem;justify-content:flex-end}
+.footer-links a{font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--green)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .portfolio-grid{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .process-steps::before{display:none}
+  footer{grid-template-columns:1fr;text-align:center}
+  .footer-links{justify-content:center}
+}
+@media(max-width:600px){
+  nav{padding:1rem 4vw}
+  .nav-links{display:none}
+  section{padding:5rem 4vw}
+  .services-grid{grid-template-columns:1fr}
+  .portfolio-grid{grid-template-columns:1fr}
+  .hero-proof{gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#"><span class="logo-dot"></span>Growthify Digital</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a class="btn-ghost" href="#portfolio">See Work</a>
+    <a class="btn-primary" href="#contact">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-eyebrow"><span class="hero-eyebrow-dot"></span> Award-Winning Digital Agency</div>
+  <h1>We Don't Just Market.<br>We <span class="accent ital">Grow</span> Brands.</h1>
+  <p class="hero-sub">Growthify Digital fuses creative strategy with data science to turn your brand into a market leader — predictably, profitably, and at scale.</p>
+  <div class="hero-ctas">
+    <a class="btn-primary btn-lg" href="#contact">Start Growing Today →</a>
+    <a class="btn-outline-lg" href="#portfolio">View Our Work</a>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-visual">
+      <div class="av-kpi-row">
+        <div class="av-kpi"><div class="av-kpi-val">3.8×</div><div class="av-kpi-label">Avg traffic lift in 90 days</div></div>
+        <div class="av-kpi"><div class="av-kpi-val">₹52Cr</div><div class="av-kpi-label">Revenue generated for clients</div></div>
+      </div>
+      <div class="av-bar-section">
+        <div class="av-bar-row">
+          <div class="av-bar-meta"><span class="av-bar-label">Organic Traffic</span><span class="av-bar-val">+380%</span></div>
+          <div class="av-track"><div class="av-fill" style="width:80%"></div></div>
+        </div>
+        <div class="av-bar-row">
+          <div class="av-bar-meta"><span class="av-bar-label">Lead Quality Score</span><span class="av-bar-val">+240%</span></div>
+          <div class="av-track"><div class="av-fill" style="width:58%"></div></div>
+        </div>
+        <div class="av-bar-row">
+          <div class="av-bar-meta"><span class="av-bar-label">Conversion Rate</span><span class="av-bar-val">+165%</span></div>
+          <div class="av-track"><div class="av-fill" style="width:40%"></div></div>
+        </div>
+        <div class="av-bar-row">
+          <div class="av-bar-meta"><span class="av-bar-label">Revenue Growth</span><span class="av-bar-val">+520%</span></div>
+          <div class="av-track"><div class="av-fill" style="width:95%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <div>
+        <div class="section-label">About Us</div>
+        <h2 class="section-h">Built to <span class="g i">Scale</span> Ambitious Brands</h2>
+        <p class="section-p">Founded in 2016, Growthify Digital is a performance-first marketing agency based in India. We combine creative firepower with rigorous data science to help brands grow predictably and profitably across every digital channel.</p>
+      </div>
+      <div class="about-feature">
+        <div class="af-icon">→</div>
+        <div><div class="af-h">Data-First Strategy</div><div class="af-p">Every campaign decision is backed by real data. We run continuous experiments, analyze results, and scale what works — no guesswork, no vanity metrics.</div></div>
+      </div>
+      <div class="about-feature">
+        <div class="af-icon">◎</div>
+        <div><div class="af-h">Dedicated Growth Pods</div><div class="af-p">You get a dedicated team of strategists, creatives, and analysts — all laser-focused on scaling your brand with weekly calls and complete transparency.</div></div>
+      </div>
+      <div class="about-feature">
+        <div class="af-icon">▲</div>
+        <div><div class="af-h">Performance Guarantee</div><div class="af-p">We're so confident in our process that we back it with a results guarantee. If we don't hit agreed KPIs, you don't pay the performance fee. Simple.</div></div>
+      </div>
+      <a class="btn-primary" style="align-self:flex-start;padding:.75rem 1.6rem" href="#contact">Work With Us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header-row">
+    <div>
+      <div class="section-label">What We Do</div>
+      <h2 class="section-h">Full-Spectrum <span class="g">Digital Growth</span></h2>
+    </div>
+    <p class="section-p" style="margin-top:0;max-width:360px">From search to social, paid to organic — we cover every channel that drives real, measurable business results.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">↑</div>
+      <div class="svc-h">SEO & Organic Growth</div>
+      <p class="svc-p">Technical SEO, content strategy, and link building that dominates search rankings and drives compounding organic traffic month after month.</p>
+      <span class="svc-tag">High ROI</span>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">◈</div>
+      <div class="svc-h">Paid Media & PPC</div>
+      <p class="svc-p">Performance-driven Google, Meta, and LinkedIn campaigns engineered for maximum ROI, minimal waste, and scalable customer acquisition.</p>
+      <span class="svc-tag">Fast Results</span>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">◉</div>
+      <div class="svc-h">Social Media Marketing</div>
+      <p class="svc-p">Platform-native content strategies that build loyal communities, amplify reach, and turn followers into paying customers and brand advocates.</p>
+      <span class="svc-tag">Brand Building</span>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <div class="svc-icon">▣</div>
+      <div class="svc-h">Content Marketing</div>
+      <p class="svc-p">Authority-building blogs, viral videos, and lead-gen content that positions your brand as the go-to expert in your category and drives organic demand.</p>
+      <span class="svc-tag">Long-term Value</span>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">05</div>
+      <div class="svc-icon">⊕</div>
+      <div class="svc-h">Email & Marketing Automation</div>
+      <p class="svc-p">Intelligent drip sequences, lifecycle automation, and segmented campaigns that nurture leads and drive repeat revenue on autopilot 24/7.</p>
+      <span class="svc-tag">Revenue Engine</span>
+      <div class="svc-arrow">→</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">06</div>
+      <div class="svc-icon">◎</div>
+      <div class="svc-h">Analytics & CRO</div>
+      <p class="svc-p">Live dashboards, funnel audits, and A/B testing that turn your existing traffic into more revenue — without spending another rupee on ads.</p>
+      <span class="svc-tag">Zero Waste</span>
+      <div class="svc-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-header-row">
+    <div>
+      <div class="section-label">Our Work</div>
+      <h2 class="section-h">Real Brands. <span class="g i">Real Results.</span></h2>
+    </div>
+    <a class="btn-ghost" href="#contact">Start Your Project →</a>
+  </div>
+  <div class="portfolio-grid">
+    <div class="port-card">
+      <div class="port-thumb port-thumb-a">SN</div>
+      <div class="port-body">
+        <div class="port-industry">E-Commerce · Fashion</div>
+        <div class="port-h">StyleNest India — Complete Digital Overhaul</div>
+        <div class="port-result">₹8L → ₹45L monthly revenue in 6 months</div>
+        <div class="port-tags"><span class="port-tag">SEO</span><span class="port-tag">Meta Ads</span><span class="port-tag">Email</span></div>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb port-thumb-b">TS</div>
+      <div class="port-body">
+        <div class="port-industry">SaaS · B2B Technology</div>
+        <div class="port-h">TechSpark — Organic Growth & Thought Leadership</div>
+        <div class="port-result">Organic traffic tripled in 90 days</div>
+        <div class="port-tags"><span class="port-tag">Content</span><span class="port-tag">SEO</span><span class="port-tag">LinkedIn</span></div>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb port-thumb-c">GF</div>
+      <div class="port-body">
+        <div class="port-industry">B2B Services · Lead Gen</div>
+        <div class="port-h">GrowFast B2B — Paid Acquisition Revamp</div>
+        <div class="port-result">CPA cut by 60%, leads doubled</div>
+        <div class="port-tags"><span class="port-tag">Google Ads</span><span class="port-tag">CRO</span><span class="port-tag">Analytics</span></div>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb port-thumb-d">ZN</div>
+      <div class="port-body">
+        <div class="port-industry">D2C · Health & Wellness</div>
+        <div class="port-h">Zenora Health — Brand Launch & Scale</div>
+        <div class="port-result">0 to 50K customers in 8 months</div>
+        <div class="port-tags"><span class="port-tag">Brand Strategy</span><span class="port-tag">Influencer</span><span class="port-tag">D2C Ads</span></div>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb port-thumb-e">AQ</div>
+      <div class="port-body">
+        <div class="port-industry">EdTech · Online Courses</div>
+        <div class="port-h">AquaLearn — Full Funnel Build</div>
+        <div class="port-result">ROAS improved from 1.8× to 7.2×</div>
+        <div class="port-tags"><span class="port-tag">YouTube Ads</span><span class="port-tag">Funnel</span><span class="port-tag">Email</span></div>
+      </div>
+    </div>
+    <div class="port-card">
+      <div class="port-thumb port-thumb-f">RH</div>
+      <div class="port-body">
+        <div class="port-industry">Real Estate · Luxury</div>
+        <div class="port-h">Regal Homes — High-Ticket Lead Gen</div>
+        <div class="port-result">42 qualified leads in 30 days at ₹1,800/lead</div>
+        <div class="port-tags"><span class="port-tag">Google Ads</span><span class="port-tag">Landing Pages</span><span class="port-tag">CRM</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div style="text-align:center;max-width:560px;margin:0 auto">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-h" style="margin:0 auto">From Zero to Growth in <span class="g i">4 Steps</span></h2>
+  </div>
+  <div class="process-steps">
+    <div class="proc-step">
+      <div class="proc-num">01</div>
+      <div class="proc-h">Discovery Call</div>
+      <p class="proc-p">We audit your brand, goals, competition, and current digital performance to map the full growth opportunity.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">02</div>
+      <div class="proc-h">Strategy Blueprint</div>
+      <p class="proc-p">We deliver a custom roadmap with prioritized channels, budgets, timelines, and clear KPIs — tailored to your business.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">03</div>
+      <div class="proc-h">Launch & Execute</div>
+      <p class="proc-p">Campaigns go live, content ships, and our team begins optimizing daily. Momentum builds fast from day one.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">04</div>
+      <div class="proc-h">Scale & Compound</div>
+      <p class="proc-p">We identify what's winning, scale it aggressively, and keep pushing the ceiling on your growth month over month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header-row">
+    <div>
+      <div class="section-label">Client Stories</div>
+      <h2 class="section-h">What Our Clients <span class="g i">Say</span></h2>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testi-quote">"Growthify took our e-commerce store from ₹8L to ₹45L/month in under 6 months. The ROI has been extraordinary — they've become a true growth partner for us."</p>
+      <div class="testi-author">
+        <div class="testi-av av-g">RK</div>
+        <div><div class="testi-name">Rohit Kapoor</div><div class="testi-role">Founder, StyleNest India</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testi-quote">"Our organic traffic tripled in 3 months. The SEO strategy they built keeps compounding — a year later we're still seeing month-on-month growth. Best investment we've made."</p>
+      <div class="testi-author">
+        <div class="testi-av av-b">PM</div>
+        <div><div class="testi-name">Priya Mehta</div><div class="testi-role">CEO, TechSpark Solutions</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testi-quote">"The paid ads team cut our cost-per-acquisition by 60% while doubling lead volume. These people genuinely understand performance marketing at every level."</p>
+      <div class="testi-author">
+        <div class="testi-av av-y">AS</div>
+        <div><div class="testi-name">Arjun Singh</div><div class="testi-role">Marketing Head, GrowFast B2B</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-glow"></div>
+  <div class="section-label" style="justify-content:center;display:flex">Let's Talk Growth</div>
+  <h2>Ready to <span style="color:var(--green);font-style:italic">Scale</span> Your Brand?</h2>
+  <p>Book a free 30-minute strategy call and get a custom growth plan built for your business — no commitment, no fluff.</p>
+  <div class="contact-form">
+    <input class="contact-input" type="text" placeholder="Your name"/>
+    <input class="contact-input" type="email" placeholder="Work email"/>
+    <a class="btn-primary btn-lg" href="mailto:hello@growthifydigital.com">Book Free Strategy Call →</a>
+  </div>
+  <p class="contact-note">No spam. No commitments. Just a candid conversation about your growth.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span class="logo-dot"></span>Growthify Digital</div>
+  <p class="footer-copy">© 2026 Growthify Digital. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Instagram</a>
+    <a href="mailto:hello@growthifydigital.com">Email Us</a>
+  </div>
+</footer>
+
+<script>
+const tickerItems=['SEO & Content','Paid Media','Social Strategy','Email Automation','Analytics & CRO','Brand Strategy','Video Marketing','Influencer Marketing','Conversion Optimization','Growth Hacking'];
+const track=document.getElementById('ticker-track');
+const doubled=[...tickerItems,...tickerItems];
+track.innerHTML=doubled.map(t=>`<div class="ticker-item"><span class="ticker-sep"></span>${t}</div>`).join('');
+</script>
+</body>
+</html>
